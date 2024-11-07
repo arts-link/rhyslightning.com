@@ -95,7 +95,7 @@ main {
   .sited, .call-out {
     padding: 0 2rem;
     .categoryHeader {
-      margin: 20px auto;
+      margin: 2rem auto;
     }
   }
   .markdown-body {
@@ -164,14 +164,13 @@ main {
     margin-bottom: 50px;
   }
   .buy-button {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: inline-block;
-    padding: 12px 24px;
+    margin: 2rem auto;
+    display: block;
+    padding: 1.5rem 2rem;
     font-size: 16px;
     font-weight: bold;
     color: #ffffff;
-    background-color: #ff5a5f;
+    background-color: #e0484e;
     border: none;
     border-radius: 8px;
     text-decoration: none !important; /* Removes underline */
@@ -184,7 +183,7 @@ main {
   }
   
   .buy-button:hover {
-    background-color: #e0484e;
+    background-color: #ff5a5f;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
   }
