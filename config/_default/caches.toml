@@ -1,0 +1,3 @@
+[images]
+    dir    = ':cacheDir/galleriesdeluxe'
+    maxAge = "4320h"                     # 6 months.

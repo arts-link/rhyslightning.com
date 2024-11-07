@@ -1,0 +1,24 @@
+{{ $gallery := "" }}
+
+{{ $images := slice }}
+{{ if eq .Kind "term" }}
+  {{ range .Pages }}
+    {{ $images = $images | append (.Resources.ByType "image") }}
+  {{ end }}
+{{ else }}
+  {{ $images = (.Resources.ByType "image") }}
+{{ end }}
+
+{{ with $images }}
+  {{ $id := $.RelPermalink | crypto.FNV32a }}
+  {{ $idx :=  mod $id (len $images) }}
+  {{ $first := index $images $idx }}
+  {{ $anchor := $.Params.anchor | default "smart" }}
+  {{ $thumb := $first.Fill (printf "400x264 %s" $anchor) }}
+  {{ $gallery = dict
+    "page" $
+    "images" $images
+    "thumb" $thumb
+  }}
+{{ end }}
+{{ return $gallery }}

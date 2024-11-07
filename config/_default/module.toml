@@ -1,0 +1,9 @@
+[[mounts]]
+    source = "assets"
+    target = "assets"
+[[mounts]]
+    source = "content"
+    target = "content"
+
+[[imports]]
+    path = "github.com/bep/galleriesdeluxe"

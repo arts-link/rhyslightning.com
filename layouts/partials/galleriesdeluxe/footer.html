@@ -1,0 +1,56 @@
+{{- if or .IsHome (eq .RelPermalink "/about/") }}
+  <div class="topic-container">
+    <ul>
+      {{- range $name, $taxonomy := .Site.Taxonomies.topics }}
+        <li><a href="{{- $taxonomy.Page.RelPermalink }}">{{- $name }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+{{- end }}
+{{- if eq .Kind "term" }}
+  {{- $currentTerm := .Data.Term }}
+  {{- $allOtherTerms := slice }}
+  {{- range where .Site.RegularPages "Params.topics" "intersect" (slice $currentTerm) }}
+    {{- $otherTerms := slice }}
+    {{- range .Params.topics }}
+      {{- if ne . $currentTerm }}
+        {{- $otherTerms = $otherTerms | append . }}
+      {{- end }}
+    {{- end }}
+    {{- $allOtherTerms = $allOtherTerms | append $otherTerms }}
+  {{- end }}
+  {{- $uniqueOtherTerms := $allOtherTerms | uniq }}
+  {{- if gt (len $uniqueOtherTerms) 0 }}
+    <h3>Related Topics</h3>
+    <div class="topic-container">
+      <ul>
+        {{- range $uniqueOtherTerms }}
+          <li><a href="{{- "topics/" | relURL }}{{- . | urlize }}">{{- . }}</a></li>
+        {{- end }}
+      </ul>
+    </div>
+  {{- end }}
+{{- end }}
+
+
+  <div class="footer-container">
+    <div>
+      All photos &copy;
+      {{- with site.Params.author }}
+        {{- if and .name .url}}
+          <a href="{{- .url }}">{{- .name }}</a>
+        {{- else }}
+          {{- .name }}
+        {{- end }}
+      {{- end }}.<br/>
+      Built by <a href="https://www.arts-link.com">arts-link</a>.<br/>
+      Powered by <a href="https://gohugo.io/">Hugo</a> and the <a class="mt" href="{{- relref . "about#codex" }}" >Galleries Deluxe*</a> theme.
+    </div>
+  </div>
+    <div>
+
+      <a href="{{- `index.xml` | relURL }}" aria-label="Click here to add our rss feed to your feed reader"  ><img src="{{- `rss-solid.svg` | relURL }}" width="32px" height="32px" alt="subscribe to the rss feed to get updates in your feed reader"/></a>
+      
+    </div>
+
+  

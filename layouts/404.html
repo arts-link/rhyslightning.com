@@ -1,0 +1,19 @@
+{{ define "main" }}
+Hi!
+  {{ $images := (.Resources.ByType "image") }}
+  {{ if gt (len $images) 1 }}
+    {{ partial "galleriesdeluxe/list-gallery.html" . }}
+  {{ else }}
+    <div class="image-container">
+      {{ with $images }} {{ range . }}
+        {{ $thumbs := partial "gallerydeluxe/create-thumbs.html" . }}
+        {{ $full := $thumbs.full }}
+        {{ with $full }} <img class="singlePictureGallery" src="{{ .RelPermalink }}" alt="{{ .Title }}"> {{ end }}
+      {{ end }} {{ end }}
+    </div>
+  {{ end }}
+{{ end }}
+
+{{ define "head-custom" }}
+  {{ partial "gallerydeluxe/head.html" . }}
+{{ end }}

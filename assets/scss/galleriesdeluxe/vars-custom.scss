@@ -1,0 +1,230 @@
+/* Override any SCSS variable here. */
+
+/* $color-background is also defined in site config (params.galleriesdeluxe.sassvars), which will win. */
+$color-background: #fff !default;
+$color-background-footer: darken($color-background, 1%) !default;
+
+/* Set the primary and secondary color to contrast and fit with that background. */
+$color-primary: #fbb7c0 !default;
+$color-secondary: #b6244f !default;
+
+header {
+  
+  display: block !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  
+  .categoryHeader {
+    text-align:center; 
+    border: 3px solid $color-secondary; 
+    padding-top: 10px;
+    margin: 0 auto;
+    background-color: #fff; 
+    color: $color-background; 
+    border-radius: 20px;
+    width: 90%;
+  }
+
+  .titleNav {
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    // width: 100%;
+  }
+
+  .titleNav .titleNavButton {
+    font-size: 4rem;
+    font-weight: 900;
+    margin: 0 10px; 
+  }
+
+  .titleNav h1 {
+    margin: 0.5rem 0.5rem; 
+  }
+
+/* Media query for small screens */
+@media (max-width: 768px) {
+  .titleNav h1 {
+    font-size: 1.5rem; /* Adjust the font size for small screens */
+  }
+  .titleNav .titleNavButton {
+    font-size: 1.5rem;
+    font-weight: 900;
+  }
+}
+
+  ul {
+    display: flex;
+    flex-wrap: wrap; /* Allows the list items to wrap */
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin: 0 0.5rem 0.5rem 0.5rem; /* Margin adjusted for wrapping */
+      line-height: 2em;
+      a {
+        text-decoration: none;
+        text-transform: capitalize;
+        &:hover {
+          text-decoration: underline;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+} 
+
+main {
+
+  .galleries {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  }
+
+  .markdown-body {
+    padding: 0 1rem;
+    img {
+      background-color: unset;
+    }
+    pre {
+      background-color: unset;
+    }
+    p {
+      margin: 0.5rem 0;
+      color: #fbb7c0;
+    }
+    
+  }
+  h2 {
+    margin: 0.5rem 0;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .subHeader {
+    display: flex ;
+    justify-content: center;
+    align-items: center;
+    a {
+      font-size: 2rem;
+      font-weight: 900;
+      margin: 0 10px;
+    }
+  }
+
+  .singlePictureGallery {
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+  }
+  .image-container {
+    width: 100%;
+    // height: 79vh; 
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+
+  .categoryHeader {
+    text-align:center; 
+    border: 3px solid $color-secondary; 
+    background-color: #fff; 
+    color: $color-background; 
+    border-radius: 20px;
+    width: 95%;
+  }
+
+  .categoryFooter {
+    text-align:center; 
+    border: 3px solid $color-secondary; 
+    // background-color: #fff; 
+    // color: $color-background; 
+    border-radius: 20px;
+    width: 95%;
+    margin-bottom: 50px;
+  }
+  .buy-button {
+    margin-top: 10px;
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #ff5a5f;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap; /* Prevents text wrapping */
+    max-width: fit-content; /* Ensures button is only as wide as content */
+  }
+  
+  .buy-button:hover {
+    background-color: #e0484e;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  
+}
+
+footer {
+  h3 {
+    margin: 0 auto;
+    max-width: 100ch;
+    text-align: center;
+    font-size: 1.25rem;
+  }
+  .topic-container {
+    margin: 0 auto;
+    max-width: 100ch;
+  }
+  .topic-container > div {
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .footer-container {
+    margin: 0 auto;
+    max-width: 140ch;
+    display: flex;
+    justify-content: space-between; /* Distributes space between child elements */
+    align-items: center; /* Aligns items vertically in the center */
+    width: 100%;
+  }
+
+  .footer-container > div {
+    flex: 1; /* Allows the divs to grow and take available space */
+    padding: 30px 30px;
+    text-align: center;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap; /* Allows the list items to wrap */
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin: 0 0.5rem 0.5rem 0.5rem; /* Margin adjusted for wrapping */
+      a {
+        text-decoration: none;
+        text-transform: capitalize;
+        &:hover {
+          text-decoration: underline;
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+

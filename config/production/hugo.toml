@@ -1,0 +1,4 @@
+baseURL = 'https://rhys-lightning.com/'
+
+# [params]
+    # plausible_domain = "benstraw.com"

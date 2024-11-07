@@ -1,0 +1,37 @@
+{{ define "main" }}
+    {{ $pages := .Pages }}
+    {{ if .IsHome }}
+      {{ with site.GetPage "galleries" }}
+        {{ $pages = .Pages }}
+        {{ with first 1 $pages }} {{ range . }}
+          {{/*  <div class="subHeader"><h2>{{ .Title }}</h2> <a href="{{ .Prev.RelPermalink }}">></a></div>  */}}
+          {{ $images := (.Resources.ByType "image") }}
+          <div class="image-container">
+            {{ with $images }} {{ range . }}
+              {{ $thumbs := partial "gallerydeluxe/create-thumbs.html" . }}
+              {{ $full := $thumbs.full }}
+              {{ with $full }} 
+                {{ $mostDominant := index .Colors 0 }}
+                {{/*  {{ $filter := images.Padding 50 $mostDominant }}
+                {{ with .Filter $filter }}
+                  <img class="singlePictureGallery" src="{{ .RelPermalink }}" alt="{{ .Title }}"> 
+                {{ end }}  */}}
+                  <img class="singlePictureGallery" src="{{ .RelPermalink }}" alt="{{ .Title }}"> 
+              {{ end }}
+            {{ end }} {{ end }}
+          </div>
+          <div class="markdown-body">
+           {{ .Content }} 
+          </div>
+          <a href="https://www.stickermule.com/0bd93275367a2f0/item/16399698" class="buy-button" target="_blank" rel="noopener noreferrer">
+            Buy a Rhys Lightning magnet
+          </a>
+        {{ end }} {{ end }}
+      {{ end }}
+    {{ else }}
+
+    <div class="galleries">
+      {{ range $pages }} {{ partial "galleriesdeluxe/card.html" . }} {{ end }}
+    </div>
+    {{ end }}
+{{ end }}

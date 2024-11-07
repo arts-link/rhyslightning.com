@@ -1,0 +1,24 @@
+{{ with partial "galleriesdeluxe/get-gallery.html" . }}
+  <div class="card">
+    <a class="card-img" href="{{ .page.RelPermalink }}">
+      <img
+        src="{{ .thumb.RelPermalink }}"
+        alt="{{ .thumb.Name }}"
+        class=""
+        width="{{ .thumb.Width }}"
+        height="{{ .thumb.Height }}" />
+      {{ if gt (.images | len) 1}}
+        <span class="num-photos" >{{ .images | len }} {{ T "photo" ( .images | len) }}</span>
+      {{ end }}
+    </a>
+
+    <div class="body">
+      <h2>
+        <a href="{{ .page.RelPermalink }}">{{ .page.LinkTitle }}</a>
+      </h2>
+      <p>
+        {{ .page.Summary }}
+      </p>
+    </div>
+  </div>
+{{ end }}

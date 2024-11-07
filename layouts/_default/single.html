@@ -1,0 +1,29 @@
+{{ define "main" }}
+  {{ $images := (.Resources.ByType "image") }}
+  {{ if gt (len $images) 1 }}
+    {{ partial "galleriesdeluxe/list-gallery.html" . }}
+  {{ else }}
+    <div class="image-container">
+      {{ with $images }} {{ range . }}
+        {{ $thumbs := partial "gallerydeluxe/create-thumbs.html" . }}
+        {{ $full := $thumbs.full }}
+        {{ with $full }} 
+        {{/*  {{ with .Colors }}
+        {{ . }}
+        {{ end }}  */}}
+          {{ $mostDominant := index .Colors 0 }}
+          {{ $darkest := index (sort .Colors "Luminance") 0 }}
+          {{ $lightest := index (sort .Colors "Luminance") -1 }}
+          {{ $filter := images.Padding 50 $lightest }}
+          {{/*  {{ with .Filter $filter }}  */}}
+            <img class="singlePictureGallery" src="{{ .RelPermalink }}" alt="{{ .Title }}"> 
+          {{/*  {{ end }}  */}}
+        {{ end }}
+      {{ end }} {{ end }}
+    </div>
+  {{ end }}
+{{ end }}
+
+{{ define "head-custom" }}
+  {{ partial "gallerydeluxe/head.html" . }}
+{{ end }}
