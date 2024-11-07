@@ -23,14 +23,15 @@
           <div class="markdown-body">
            {{ .Content }} 
           </div>
-          <a href="https://www.stickermule.com/0bd93275367a2f0/item/16399698" class="buy-button" target="_blank" rel="noopener noreferrer">
-            Buy The ⚡ Rhys Lightning ⚡ magnet
-          </a>
+          <div class="call-out">
+            <h2 class="categoryHeader">Join the movement!</h2>
+            <p> Buy a magnet or sticker pack today and send your pictures to <a href="mailto:hello@arts-link.com">hello@arts-link.com</a> to be added this website and tell us about your experience!  </p>
+            <a href="https://www.stickermule.com/0bd93275367a2f0/item/16399698" class="buy-button" target="_blank" rel="noopener noreferrer">
+              Buy The ⚡ Rhys Lightning ⚡ magnet
+            </a>
+          </div>
           <div class="sited">
-            <div class="categoryHeader">
-            <h2 class=>Sightings in the Wild</h2>
-            </div>
-
+            <h2 class="categoryHeader">Sightings in the Wild</h2>
             {{ with site.GetPage "galleries/sightings" }}
             {{ $images := (.Resources.ByType "image") }}
             {{ partial "galleriesdeluxe/list-gallery.html" . }}

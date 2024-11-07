@@ -42,19 +42,19 @@ header {
     margin: 0.5rem 0.5rem; 
   }
 
-/* Media query for small screens */
-@media (max-width: 768px) {
-  .categoryHeader h1 {
-    font-size: 2.0rem; /* Adjust the font size for small screens */
-  } 
-  .titleNav h1 {
-    font-size: 1.5rem; /* Adjust the font size for small screens */
+  /* Media query for small screens */
+  @media (max-width: 768px) {
+    .categoryHeader h1 {
+      font-size: 2.0rem; /* Adjust the font size for small screens */
+    } 
+    .titleNav h1 {
+      font-size: 1.5rem; /* Adjust the font size for small screens */
+    }
+    .titleNav .titleNavButton {
+      font-size: 1.5rem;
+      font-weight: 900;
+    }
   }
-  .titleNav .titleNavButton {
-    font-size: 1.5rem;
-    font-weight: 900;
-  }
-}
 
   ul {
     display: flex;
@@ -84,7 +84,15 @@ main {
   .galleries {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   }
-  .sited {
+  .call-out {
+    width: 50%;
+    p {
+      margin: 0.5rem 0;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+  }
+  .sited, .call-out {
     padding: 0 2rem;
     .categoryHeader {
       margin: 20px auto;
@@ -138,6 +146,7 @@ main {
 
   .categoryHeader {
     text-align:center; 
+    padding: 1.0rem;
     border: 3px solid $color-secondary; 
     background-color: #fff; 
     color: $color-background; 
