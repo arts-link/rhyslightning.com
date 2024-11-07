@@ -13,7 +13,7 @@ header {
   display: block !important;
   margin-top: 0.5rem !important;
   margin-bottom: 0.5rem !important;
-  
+
   .categoryHeader {
     text-align:center; 
     border: 3px solid $color-secondary; 
@@ -44,6 +44,9 @@ header {
 
 /* Media query for small screens */
 @media (max-width: 768px) {
+  .categoryHeader h1 {
+    font-size: 2.0rem; /* Adjust the font size for small screens */
+  } 
   .titleNav h1 {
     font-size: 1.5rem; /* Adjust the font size for small screens */
   }
