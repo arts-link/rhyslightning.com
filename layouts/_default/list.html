@@ -30,6 +30,7 @@
             <div class="categoryHeader">
             <h2 class=>Sightings in the Wild</h2>
             </div>
+
             {{ with site.GetPage "galleries/sightings" }}
             {{ $images := (.Resources.ByType "image") }}
             {{ partial "galleriesdeluxe/list-gallery.html" . }}
@@ -39,7 +40,6 @@
       {{ end }}
     {{ else }}
     <div class="galleries">
-hi
       {{ range $pages }} {{ partial "galleriesdeluxe/card.html" . }} {{ end }}
     </div>
     {{ end }}

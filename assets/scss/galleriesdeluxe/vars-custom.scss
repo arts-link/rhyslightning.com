@@ -82,6 +82,7 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   }
   .sited {
+    padding: 0 2rem;
     .categoryHeader {
       margin: 20px auto;
     }
