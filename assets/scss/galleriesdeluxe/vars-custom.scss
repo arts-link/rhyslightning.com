@@ -81,7 +81,11 @@ main {
   .galleries {
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   }
-
+  .sited {
+    .categoryHeader {
+      margin: 20px auto;
+    }
+  }
   .markdown-body {
     padding: 0 1rem;
     img {
@@ -147,7 +151,8 @@ main {
     margin-bottom: 50px;
   }
   .buy-button {
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: inline-block;
     padding: 12px 24px;
     font-size: 16px;
@@ -156,13 +161,13 @@ main {
     background-color: #ff5a5f;
     border: none;
     border-radius: 8px;
-    text-decoration: none;
+    text-decoration: none !important; /* Removes underline */
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
-    cursor: pointer;
-    white-space: nowrap; /* Prevents text wrapping */
-    max-width: fit-content; /* Ensures button is only as wide as content */
+    white-space: nowrap;
+    max-width: fit-content;
+    cursor: pointer !important; /* Ensures pointer cursor */
   }
   
   .buy-button:hover {
@@ -170,10 +175,13 @@ main {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     transform: translateY(-2px);
   }
+    
   
   
 }
-
+.buy-button:link, .buy-button:visited {
+  cursor: pointer !important; /* Ensures pointer cursor for both link and visited states */
+}
 footer {
   h3 {
     margin: 0 auto;

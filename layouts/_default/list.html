@@ -24,14 +24,27 @@
            {{ .Content }} 
           </div>
           <a href="https://www.stickermule.com/0bd93275367a2f0/item/16399698" class="buy-button" target="_blank" rel="noopener noreferrer">
-            Buy a Rhys Lightning magnet
+            Buy The ⚡ Rhys Lightning ⚡ magnet
           </a>
+          <div class="sited">
+            <div class="categoryHeader">
+            <h2 class=>Sightings in the Wild</h2>
+            </div>
+            {{ with site.GetPage "galleries/sightings" }}
+            {{ $images := (.Resources.ByType "image") }}
+            {{ partial "galleriesdeluxe/list-gallery.html" . }}
+            {{ end }}
+          </div>
         {{ end }} {{ end }}
       {{ end }}
     {{ else }}
-
     <div class="galleries">
+hi
       {{ range $pages }} {{ partial "galleriesdeluxe/card.html" . }} {{ end }}
     </div>
     {{ end }}
+{{ end }}
+
+{{ define "head-custom" }}
+  {{ partial "gallerydeluxe/head.html" . }}
 {{ end }}
