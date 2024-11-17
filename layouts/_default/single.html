@@ -1,4 +1,6 @@
 {{ define "main" }}
+<div class="main-container">
+
   {{ $images := (.Resources.ByType "image") }}
   {{ if gt (len $images) 1 }}
     {{ partial "galleriesdeluxe/list-gallery.html" . }}
@@ -8,20 +10,15 @@
         {{ $thumbs := partial "gallerydeluxe/create-thumbs.html" . }}
         {{ $full := $thumbs.full }}
         {{ with $full }} 
-        {{/*  {{ with .Colors }}
-        {{ . }}
-        {{ end }}  */}}
-          {{ $mostDominant := index .Colors 0 }}
-          {{ $darkest := index (sort .Colors "Luminance") 0 }}
-          {{ $lightest := index (sort .Colors "Luminance") -1 }}
-          {{ $filter := images.Padding 50 $lightest }}
-          {{/*  {{ with .Filter $filter }}  */}}
-            <img class="singlePictureGallery" src="{{ .RelPermalink }}" alt="{{ .Title }}"> 
-          {{/*  {{ end }}  */}}
+          <img class="singlePictureGallery" width="512px" style="width:512px;" src="{{ .RelPermalink }}" alt="{{ .Title }}"> 
         {{ end }}
       {{ end }} {{ end }}
     </div>
   {{ end }}
+  <div class="markdown-body">
+    {{ .Content }}
+  </div>
+  </div>
 {{ end }}
 
 {{ define "head-custom" }}
