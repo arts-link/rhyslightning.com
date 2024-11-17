@@ -35,18 +35,14 @@
 
   <div class="footer-container">
     <div>
-      All photos &copy;
-      {{- with site.Params.author }}
-        {{- if and .name .url}}
-          <a href="{{- .url }}">{{- .name }}</a>
-        {{- else }}
-          {{- .name }}
-        {{- end }}
-      {{- end }}.<br/>
       Built by <a href="https://www.arts-link.com">arts-link</a>.<br/>
       Powered by <a href="https://gohugo.io/">Hugo</a> and the <a class="mt" href="{{- relref . "about#codex" }}" >Galleries Deluxe*</a> theme.
     </div>
   </div>
+    <div>
+      {{ $image := resources.Get "images/rhyslightning.png" }}
+<img src="{{ $image.RelPermalink }}" alt="Go Rhys Lightning ⚡︎">
+    </div>
     <div>
 
       <a href="{{- `index.xml` | relURL }}" aria-label="Click here to add our rss feed to your feed reader"  ><img src="{{- `rss-solid.svg` | relURL }}" width="32px" height="32px" alt="subscribe to the rss feed to get updates in your feed reader"/></a>
