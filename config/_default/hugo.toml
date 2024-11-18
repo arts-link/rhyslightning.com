@@ -25,7 +25,7 @@ title = "rhys-lightning --- DEV"
         enable_exif = false
         # Optional watermark file for the large images.
         [params.gallerydeluxe.watermark]
-            image = "images/rhyslightning-watermark.png" # relative to /assets
+            image = "images/rhys-lightning-watermark.png" # relative to /assets
             posx  = "right"                    # one of "left", "center", "right"
             posy  = "bottom"                  # one of "top", "center", "bottom"
 
