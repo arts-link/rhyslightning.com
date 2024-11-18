@@ -1,19 +1,13 @@
 {{ define "main" }}
-Hi!
-  {{ $images := (.Resources.ByType "image") }}
-  {{ if gt (len $images) 1 }}
-    {{ partial "galleriesdeluxe/list-gallery.html" . }}
+<div class="main-container">
+  {{ $image := resources.Get "images/rhys-lightning-404-error.png" }}
+  {{ if $image }}
+    {{ $thumbs := partial "gallerydeluxe/create-thumbs.html" $image }}
+    {{ $full := $thumbs.full }}
+    {{ with $full }} <img class="singlePictureGallery" src="{{ .RelPermalink }}" alt="{{ .Title }}"> {{ end }}
   {{ else }}
-    <div class="image-container">
-      {{ with $images }} {{ range . }}
-        {{ $thumbs := partial "gallerydeluxe/create-thumbs.html" . }}
-        {{ $full := $thumbs.full }}
-        {{ with $full }} <img class="singlePictureGallery" src="{{ .RelPermalink }}" alt="{{ .Title }}"> {{ end }}
-      {{ end }} {{ end }}
-    </div>
+    <p>404 File not found</p>
   {{ end }}
-{{ end }}
 
-{{ define "head-custom" }}
-  {{ partial "gallerydeluxe/head.html" . }}
+</div>
 {{ end }}

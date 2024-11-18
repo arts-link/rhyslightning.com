@@ -26,7 +26,7 @@
           </div>
           <div class="call-out">
             <h2 class="categoryHeader">Join the movement!</h2>
-            <p> Buy a magnet or sticker pack today and share them on the socials with   <span style="font-weight: bold; color: #96ff33;">#rhyslightning</span> or send your photos in to <a href="mailto:hello@arts-link.com">hello@arts-link.com</a> to have them added THIS website and tell us about your experience! You will be entered to win The Big Prize<sup>*</sup>!</p>
+            <p> Buy a magnet or sticker pack today and share them on the socials with   <span style="font-weight: bold; color: #96ff33;">#rhyslightning</span> or send your photos in to <a href="mailto:hello@arts-link.com">hello@arts-link.com</a> to have them added THIS website and tell us about your experience!</p>
             <a href="https://www.stickermule.com/0bd93275367a2f0/item/16399698" class="buy-button" target="_blank" rel="noopener noreferrer">
               BUY ⚡ YOUR ⚡ MAGNETS 
             </a>
@@ -36,12 +36,58 @@
               Connect with us on <a href="https://x.com/rhyslightning" target="_blank" aria-label="Rhys Lightning on X"> X </a> and <a href="https://instagram.com/rhyslightning" target="_blank" aria-label="Rhys Lightning on Instagram" >Instagram </a> and never miss a moment!
             </p> 
             <p style="text-align:center;">
-              {{ $image := resources.Get "images/Instagram_Glyph_Gradient.png" }}
-              <a href="https://www.instagram.com/rhysespeanutbutterpup/" class="social-button" target="_blank" rel="noopener noreferrer"><img src="{{ $image.RelPermalink }}" width="32px" width="32px" alt="Go Rhys Lightning ⚡︎" style="padding:5px;"></a>
-              {{ $image := resources.Get "images/x-logo-white.png" }}
-              <a href="https://www.x.com/rhyslightnings/" class="social-button" target="_blank" rel="noopener noreferrer"><img src="{{ $image.RelPermalink }}" width="32px" alt="Go Rhys Lightning ⚡︎" style="padding:5px;"></a>
+              <style>
+
+                /* Base button styling */
+.social-button {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 20%; /* Circular buttons */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Instagram button with white background and black border */
+.social-button.insta {
+  border: 2px solid #000000; /* Black border for contrast */
+}
+
+.social-button.insta:hover {
+  background-color: #f0f0f0; /* Slightly darker on hover */
+}
+
+/* Echx button with black background and white border */
+.social-button.echx {
+  background-color: #000000; /* Black background */
+  border: 2px solid #ffffff; /* White border for contrast */
+}
+
+.social-button.echx:hover {
+  background-color: #333333; /* Slightly lighter on hover */
+}
+
+/* Optional: Image styling if you want to adjust icon size or spacing */
+.social-button img {
+  display: block;
+  border-radius: 50%; /* Optional: Makes the image rounded inside the button */
+}
+.social-btn-cnt{
+  display: flex;                 /* Enable flexbox */
+  justify-content: center;       /* Center items horizontally */
+  align-items: center;           /* Center items vertically */
+  gap: 50px;                     /* Space between the buttons */
+}
+              </style>
+              <div class="social-btn-cnt">
+                {{ $image := resources.Get "images/Instagram_Glyph_Gradient.png" }}
+                <a href="https://www.instagram.com/rhysespeanutbutterpup/" class="social-button insta" target="_blank" rel="noopener noreferrer"><img src="{{ $image.RelPermalink }}" width="64px" alt="Go Rhys Lightning ⚡︎"></a>
+                {{ $image := resources.Get "images/x-logo-white.png" }}
+                <a href="https://www.x.com/rhyslightnings/" class="social-button echx" target="_blank" rel="noopener noreferrer"><img src="{{ $image.RelPermalink }}" width="64px" alt="Go Rhys Lightning ⚡︎" style="padding:5px;"></a>
+              </div>
             </p>
           </div>
+            <a href="https://www.stickermule.com/0bd93275367a2f0/item/16399698" class="buy-button" target="_blank" rel="noopener noreferrer">
+              BUY ⚡ YOUR ⚡ MAGNETS 
+            </a>
          
           <div class="sited">
             <h2 class="categoryHeader">Sightings in the Wild</h2>
@@ -49,6 +95,9 @@
             {{ $images := (.Resources.ByType "image") }}
             {{ partial "galleriesdeluxe/list-gallery.html" . }}
             {{ end }}
+            <a href="https://www.stickermule.com/0bd93275367a2f0/item/16399698" class="buy-button" target="_blank" rel="noopener noreferrer">
+              BUY ⚡ YOUR ⚡ MAGNETS 
+            </a>
           </div>
         {{ end }} {{ end }}
       {{ end }}
