@@ -221,7 +221,45 @@ main {
   }
     
   
-  
+/* Base button styling */
+.social-button {
+  display: inline-block;
+  padding: 5px;
+  border-radius: 20%; /* Circular buttons */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Instagram button with white background and black border */
+.social-button.insta {
+  border: 2px solid #ffffff; /* Black border for contrast */
+}
+
+.social-button.insta:hover {
+  background-color: #f0f0f0; /* Slightly darker on hover */
+}
+
+/* Echx button with black background and white border */
+.social-button.echx {
+  background-color: #000000; /* Black background */
+  border: 2px solid #ffffff; /* White border for contrast */
+}
+
+.social-button.echx:hover {
+  background-color: #333333; /* Slightly lighter on hover */
+}
+
+/* Optional: Image styling if you want to adjust icon size or spacing */
+.social-button img {
+  display: block;
+  border-radius: 50%; /* Optional: Makes the image rounded inside the button */
+}
+.social-btn-cnt{
+  display: flex;                 /* Enable flexbox */
+  justify-content: center;       /* Center items horizontally */
+  align-items: center;           /* Center items vertically */
+  gap: 50px;                     /* Space between the buttons */
+}
+
 }
 .buy-button:link, .buy-button:visited {
   cursor: pointer !important; /* Ensures pointer cursor for both link and visited states */

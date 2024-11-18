@@ -9,8 +9,8 @@ title = "rhys-lightning --- DEV"
 
     [params.author]
         name        = "Benjamin Strawbridge"
-        email       = "hello@benstraw.com"
-        url         = "https://www.benstrawbridge.com"
+        email       = "hello@arts-link.com"
+        url         = "https://www.arts-link.com.com"
 
     [params.galleriesdeluxe]
         # One of dartsass or libsass.
