@@ -4,65 +4,9 @@
   {{ $featured = $images.GetMatch "{*cover*,*thumbnail*}" }}
 {{ end }}
 {{ if not $featured }}
-  {{ if gt (len $images) 0 }}
-    {{ $featured = index $images 0 }}
-    
-    {{/*  "tight"  */}}
-    {{ $resizeTarget := 1200 }}
-    {{ if eq .Params.scale "wide" }}
-      {{ $resizeTarget = 1920 }}
-    {{ else if eq .Params.scale "medium" }}
-      {{ $resizeTarget = 1600 }}
-    {{ else if eq .Params.scale "none" }}
-      {{ $resizeTarget = "" }}
-    {{ end }}
-    {{ if $resizeTarget }}
-      {{ $featured = $featured.Resize (printf "%dx" $resizeTarget) }}
-    {{ end }}
-    
-    {{ $cropAnchor := "" }}
-    {{ if .Params.anchor }}
-        {{ $cropAnchor = printf "1200x630 %s" .Params.anchor }}
-    {{ else }}
-        {{ $cropAnchor = "1200x630" }}
-    {{ end }}
-    {{ $featured = $featured.Crop $cropAnchor }}
-
-    {{ $description := "" }}
-    {{ with .Site.Params.description }}{{ $description = . }}{{ end }}
-    {{ $site := "benstraw.com" }}
-    {{ with .Site.Params.site }}{{ $site = . }}{{ end }}
-    {{ $text := printf "%s @ %s" $description $site}}
-    {{ $font := (resources.Get "/common-partials/opengraph/opengraph-font.ttf") }}
-    {{ $textOptions := dict
-      "color" "#FFF"
-      "size" 25
-      "lineSpacing" 10
-      "x" 65 "y" 500 
-      "font" $font
-    }}
-    {{ $featured = $featured | images.Filter (images.Text $text $textOptions) }}
-  {{ else}}
-    {{ $featured = resources.Get "/common-partials/opengraph/opengraph-base.png" }}
-  {{ end}}
-  {{/*  {{ $title := $.LinkTitle }}
-  {{ if .IsHome }}
-    {{ $title = "" }}
-  {{ end }}
-  {{ $size := 80 }}
-  {{ if gt (len $title) 20 }}
-    {{ $size = 70 }}
-  {{ end }}
-  {{ $font := (resources.Get "/common-partials/opengraph/opengraph-font.ttf") }}
-  {{ $text := $title }}
-  {{ $textOptions := dict
-    "color" "#FFF"
-    "size" $size
-    "lineSpacing" 10
-    "x" 65 "y" 60
-    "font" $font
-  }}
-  {{ $featured = $featured | images.Filter (images.Text $text $textOptions) }}  */}}
+  {{ $customImage := .Param "og_image_default" | default "/common-partials/opengraph/opengraph-base.png" }}
+  {{ $featured = resources.Get $customImage }}
+  
 {{ end }}
 
 {{ return $featured }}

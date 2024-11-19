@@ -1,24 +1,23 @@
-
-
-
   <div>
-  <div style="text-align:center;">
-  <div >
-    {{ $image := resources.Get "images/Instagram_Glyph_Gradient.png" }}
-    <a href="https://www.instagram.com/rhysespeanutbutterpup/" class="social-button" target="_blank" rel="noopener noreferrer"><img src="{{ $image.RelPermalink }}" width="32px" width="32px" alt="Go Rhys Lightning ⚡︎"></a>
-    <a href="{{- `index.xml` | relURL }}" aria-label="Click here to add our rss feed to your feed reader"  ><img src="{{- `rss-solid.svg` | relURL }}" height="32px" style="padding:0 4rem;" alt="subscribe to the rss feed to get updates in your feed reader"/></a>
-    {{ $image := resources.Get "images/x-logo-white.png" }}
-    <a href="https://www.x.com/rhyslightnings/" class="social-button" target="_blank" rel="noopener noreferrer"><img src="{{ $image.RelPermalink }}" width="32px" alt="Go Rhys Lightning ⚡︎"></a>
-  </div>
-  
-  <div style="margin:20px auto">
-    {{ $image := resources.Get "images/rhyslightning.png" }}
-    <img src="{{ $image.RelPermalink }}" alt="Go Rhys Lightning ⚡︎">
-  </div>
+    <div style="text-align:center;">
+      <div >
+        {{ $image := resources.Get "images/Instagram_Glyph_Gradient.png" }}
+        <a href="https://www.instagram.com/rhysespeanutbutterpup/" class="social-button" target="_blank" rel="noopener noreferrer"><img src="{{ $image.RelPermalink }}" width="32px" width="32px" alt="Go Rhys Lightning ⚡︎"></a>
+        <a href="{{- `index.xml` | relURL }}" aria-label="Click here to add our rss feed to your feed reader"  ><img src="{{- `rss-solid.svg` | relURL }}" height="32px" style="padding:0 4rem;" alt="subscribe to the rss feed to get updates in your feed reader"/></a>
+        {{ $image := resources.Get "images/x-logo-white.png" }}
+        <a href="https://www.x.com/rhyslightnings/" class="social-button" target="_blank" rel="noopener noreferrer"><img src="{{ $image.RelPermalink }}" width="32px" alt="Go Rhys Lightning ⚡︎"></a>
+      </div>
+      
+      <div style="margin:20px auto">
+        {{ $image := resources.Get "images/rhys-lightning.png" }}
+        <a href="{{- site.BaseURL }}">
+          <img src="{{- $image.RelPermalink }}" style="max-width: 375px;" alt="Go Rhys Lightning ⚡︎">
+        </a>
+      </div>
 
-    <div>
-      Built by <a href="https://www.arts-link.com">arts-link</a>.<br/>
-      Powered by <a href="https://gohugo.io/">Hugo</a> and the <a class="mt" href="{{- relref . "about#codex" }}" >Galleries Deluxe*</a> theme.
+      <div>
+        Built by <a href="https://www.arts-link.com">arts-link</a>.<br/>
+        Powered by <a href="https://gohugo.io/">Hugo</a> and the <a class="mt" href="{{- relref . "about#codex" }}" >Galleries Deluxe*</a> theme.
+      </div>
     </div>
-  </div>
   </div>

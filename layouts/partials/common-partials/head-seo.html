@@ -1,27 +1,10 @@
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-<meta name="msapplication-TileColor" content="#da532c">
-<meta name="theme-color" content="#ffffff">
-{{ $description := "" }}
-{{ with .Description }}
-  {{ $description = . }}
-{{ else }}
-  {{ if .IsPage }}
-    {{ $description = .Summary }}
-  {{ else }}
-    {{ with .Site.Params.description }}{{ $description = . }}{{ end }}
-  {{ end }}
-{{ end }}
-<meta name="description" content="{{ $description }}" />
+<!-- Setup for SEO -->
+{{- with or (.Description | plainify | htmlUnescape | chomp) (.Summary | plainify | htmlUnescape | chomp) (site.Params.description | plainify | htmlUnescape | chomp) }}
+  <meta name="description" content="{{ . }}" />
+{{- end }}
+<!-- Open Graph Meta Tags -->
 {{- partial "common-partials/opengraph/opengraph.html" . -}}
+<!-- Schema.org for Google -->
 {{- template "_internal/schema.html" . -}}
+<!-- Twitter (X) meta tags -->
 {{- partial "common-partials/opengraph/twitter_cards.html" . -}}
-
-{{ with site.Params.plausible_domain }}
-<script defer data-domain="{{- . -}}" src="https://plausible.io/js/script.hash.outbound-links.js"></script>
-<script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-{{ end }}
-{{ if eq .Kind "404" }} <script>document.addEventListener('DOMContentLoaded', function () { plausible('404', { props: { path: document.location.pathname } }); });</script><script>document.addEventListener('DOMContentLoaded', function () { plausible('404', { props: { path: document.location.pathname } }); });</script> {{ end }}

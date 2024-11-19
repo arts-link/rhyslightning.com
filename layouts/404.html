@@ -1,6 +1,7 @@
 {{ define "main" }}
 <div class="main-container">
   {{ $image := resources.Get "images/rhys-lightning-404-error.png" }}
+  {{ $image := resources.Get "images/benstraw-rhys-404.png" }}
   {{ if $image }}
     {{ $thumbs := partial "gallerydeluxe/create-thumbs.html" $image }}
     {{ $full := $thumbs.full }}

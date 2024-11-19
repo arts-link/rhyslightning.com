@@ -109,7 +109,7 @@ header {
 } 
 
 main {
-  padding-bottom: 1rem ip !important;
+  padding-bottom: 0rem !important;
 
 
   
@@ -265,6 +265,7 @@ main {
   cursor: pointer !important; /* Ensures pointer cursor for both link and visited states */
 }
 footer {
+  // margin-top: 0rem !important;
   h3 {
     margin: 0 auto;
     max-width: 100ch;

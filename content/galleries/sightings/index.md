@@ -11,4 +11,7 @@ anchor: top
 # scale of the image resize 
 #   options: 'wide' (1500px),'medium' (1200px),'tight' (900px), 'none' -- DEFAULTS TO 'tight'
 # scale: wide 
+resources:
+  - src: '71572.webp'
+    title: 'Stuck to the side of a safe'
 ---
