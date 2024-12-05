@@ -198,8 +198,8 @@ main {
   .buy-button {
     margin: 2rem auto;
     display: block;
-    padding: 1.5rem 2rem;
-    font-size: 16px;
+    padding: 1rem 1.5rem; /* Adjust padding for mobile */
+    font-size: 14px; /* Reduce font size for better fit */
     font-weight: bold;
     color: #ffffff;
     background-color: #e0484e;
@@ -209,18 +209,25 @@ main {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
-    white-space: nowrap;
-    max-width: fit-content;
+    white-space: normal; /* Allow text to wrap */
+    word-break: break-word; /* Prevent overflow */
+    max-width: 90%; /* Limit button width on smaller screens */
     cursor: pointer !important; /* Ensures pointer cursor */
   }
-  
+
   .buy-button:hover {
-    background-color: #ff5a5f;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
+      background-color: #ff5a5f;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      transform: translateY(-2px);
   }
-    
-  
+
+  @media (max-width: 600px) { /* Adjust styles specifically for smaller screens */
+      .buy-button {
+          padding: 0.8rem 1.2rem; /* Further reduce padding */
+          font-size: 13px; /* Slightly smaller font */
+      }
+  }
+
 /* Base button styling */
 .social-button {
   display: inline-block;
